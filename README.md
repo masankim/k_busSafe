@@ -2735,16 +2735,16 @@ router.post("/m_add_car", function (req, res) {
   const car_type = req.body.car_type;
   const car_birth = req.body.car_birth;
   const car_day = req.body.car_day;
-  const var_result = req.body.var_result;
-  console.log(car_id, car_div, car_type, car_birth, car_day, var_result);
+  const car_result = req.body.car_result;
+  console.log(car_id, car_div, car_type, car_birth, car_day, car_result);
 
   if (!req.session.loggedIn) {
     res.redirect("/logout");
   } else {
     connection.query(
-      `INSERT INTO car_list (car_id, car_div, car_type, car_birth, car_day, var_result)
+      `INSERT INTO car_list (car_id, car_div, car_type, car_birth, car_day, car_result)
                 values (?, ?, ?, ?, ?, ?)`,
-      [car_id, car_div, car_type, car_birth, car_day, var_result],
+      [car_id, car_div, car_type, car_birth, car_day, car_result],
       function (err, result) {
         if (err) {
           console.log("error");
